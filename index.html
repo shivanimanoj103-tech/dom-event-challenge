@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Mini Project</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-top: 100px;
+        background-color: white;
+        transition: 0.5s;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 8px;
+      }
+      #count {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">DOM Event Challenge</h1>
+    <h2 id="count">Click: 0</h2>
+    <p id="para">click this button and see what happens</p>
+    <button id="alertbtn">Alert Button</button>
+    <button id="colorbtn">Toggle Color</button>
+    <button id="clickbtn">Click Me</button>
+
+    <script>
+      let count = 0;
+      let isDark = false;
+
+      //click button
+      document
+        .getElementById("clickbtn")
+        .addEventListener("click", function () {
+          if (count < 10) {
+            count++;
+            document.getElementById("count").innerText = "Click: " + count;
+            document.getElementById("title").innerText = "NumberOfClicks";
+            document.getElementById("title").style.color = "red";
+            document.getElementById("para").innerText =
+              "Increase clicks by clicking it again and again";
+          }
+
+          if (count === 10) {
+            document.getElementById("count").innerText = "Stop";
+            document.getElementById("title").innerText = "maximum clicks is 10";
+            document.getElementById("title").style.color = "black";
+            document.getElementById("para").innerText = "Limit reached";
+            document.getElementById("clickbtn").disabled = true;
+          }
+        });
+
+      //alert button
+
+      document
+        .getElementById("alertbtn")
+        .addEventListener("click", function () {
+          document.getElementById("title").innerText = "ALERT!!!";
+          document.getElementById("para").innerText = "Alert button on!";
+          document.body.style.color = "red";
+        });
+
+      //Toggle color
+      document
+        .getElementById("colorbtn")
+        .addEventListener("click", function () {
+          if (isDark) {
+            document.getElementById("title").innerText = "Color Change";
+            document.body.style.color = "black";
+            document.body.style.backgroundColor = "white";
+            isDark = false;
+          } else {
+            document.getElementById("title").innerText = "Color Change";
+            document.body.style.color = "white";
+            document.body.style.backgroundColor = "black";
+            isDark = true;
+          }
+        });
+    </script>
+  </body>
+</html>
