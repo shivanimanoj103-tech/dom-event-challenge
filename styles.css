@@ -6,10 +6,6 @@ body {
   background-color: white;
   transition: 0.5s;
 }
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 button {
   padding: 10px 20px;
   margin: 10px;
